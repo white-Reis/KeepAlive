@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { LoginProvider } from './common/context/Login';
+import { LoginProvider } from './context/Login';
 import Login from './pages/Login';
 import Home from './pages/Home';
 

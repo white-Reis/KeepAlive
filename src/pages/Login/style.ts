@@ -96,6 +96,8 @@ export const LogoImage = styled.img`
   width: 280px;
   height: 60px;
   display: none;
+  position: fixed;
+  top: 0;
   @media screen and (max-width:750px) {
   display:block;
   }

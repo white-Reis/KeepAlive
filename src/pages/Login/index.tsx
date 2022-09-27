@@ -2,16 +2,16 @@ import React, { FormEvent } from 'react';
 import { Email } from '../../common/helper/Regex';
 import * as Styled from './style';
 import Logo from '../../assets/Images/Logo.svg';
-import Input from '../../components/Input';
-import Button from '../../components/Button';
+import Input from '../../components/LoingPage/Input';
+import Button from '../../components/LoingPage/Button';
 import { useContext } from 'react';
-import { LoginContext } from '../../common/context/Login';
-import { SeassonProps } from '../../common/context/Login';
+import { LoginContext } from '../../context/Login';
+import { SeassonProps } from '../../context/Login';
 import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
   const {
-    logged,
+    setSeassonTime,
     email,
     password,
     setEmail,
@@ -28,6 +28,9 @@ export default function Login() {
     if (Email.test(email) && password.length > 5) {
       setLogged(true);
       setValid(true);
+      setEmail('');
+      setPassword('');
+      setSeassonTime(60);
       History('/home');
     } else {
       setValid(false);
@@ -47,6 +50,7 @@ export default function Login() {
         <Styled.InputsContainer>
           <h2>Login</h2>
           <Input
+            required
             error={valid}
             flag={''}
             icon="user"
@@ -56,6 +60,7 @@ export default function Login() {
             onChange={event => setEmail(event.target.value)}
           />
           <Input
+            required
             error={valid}
             flag={password}
             icon="lock"

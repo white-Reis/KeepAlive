@@ -1,4 +1,71 @@
+import * as Styled from './style';
+import Logo from '../../assets/Images/HomeLogoCompasso.svg';
+import ImageCompasso from '../../assets/Images/bolao.svg';
+import { LoginContext, SeassonProps } from '../../context/Login';
+import { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Timeout from '../../components/HomePage/Timeout';
+import Clock from '../../components/HomePage/Clock';
+import { Climate } from '../../components/HomePage/Climate';
+
 export default function Home() {
-  return <h1>Fabio ta cansado</h1>;
-  
+  const History = useNavigate();
+
+  const { logged, setLogged, seassonTime, setSeassonTime }: SeassonProps =
+    useContext(LoginContext);
+
+  useEffect(() => {
+    if (!logged || seassonTime === 0) {
+      History('/');
+    }
+  }, [logged, seassonTime, setSeassonTime]);
+  return (
+    <Styled.HomeContainer>
+      <Styled.Header>
+        <Styled.HomeLogo src={Logo} />
+        <Clock />
+        <Climate />
+      </Styled.Header>
+      <div>
+        <Styled.TextContainer>
+          <h1>Our mission is</h1>
+          <p>Nossa missão é</p>
+          <div>
+            <h1>to transform the world</h1>
+            <p>transformar o mundo</p>
+            <h1>building digital experiences</h1>
+            <p>construindo experiências digitais</p>
+            <h1>that enable our client’s growth</h1>
+            <p>que permitam o crescimento dos nossos clientes</p>
+          </div>
+        </Styled.TextContainer>
+        <Styled.ImageCompasso src={ImageCompasso} />
+      </div>
+      <Styled.Footer>
+        <Styled.DescriptionFooter>
+          <div>
+            <p>
+              Essa janela do navegador é usada para manter sua sessão de
+              autenticação ativa. Deixe-a aberta em segundo plano e abra uma
+              nova janela para continuar a navegar.
+            </p>
+            <span />
+          </div>
+        </Styled.DescriptionFooter>
+        <Styled.FooterButtonDiv>
+          <Timeout />
+          <Styled.FooterRightContainer>
+            <Styled.ButtonsHome
+              onClick={() => window.open('https://www.google.com.br/')}
+            >
+              Continuar Navegando
+            </Styled.ButtonsHome>
+            <Styled.ButtonsHome onClick={() => setLogged(false)}>
+              Logout
+            </Styled.ButtonsHome>
+          </Styled.FooterRightContainer>
+        </Styled.FooterButtonDiv>
+      </Styled.Footer>
+    </Styled.HomeContainer>
+  );
 }
