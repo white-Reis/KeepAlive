@@ -18,16 +18,26 @@ export const Climate = () => {
         .then(response => response.data)
         .then(item => {
           const { main, name } = item;
-          setCity(`${name} - SC`);
+          setCity(`${name} - BR`);
           setTemperature(Math.round(main.temp - 273.15));
         });
     });
+    axios
+      .get(
+        `https://api.openweathermap.org/data/2.5/weather?lat=-15.7801&lon=-47.9292&appid=a22cdd0ac2808b56c52386edfb324cfb`,
+      )
+      .then(response => response.data)
+      .then(item => {
+        const { main, name } = item;
+        setCity(`${name} - BR`);
+        setTemperature(Math.round(main.temp - 273.15));
+      });
   }, []);
   return (
     <ContainerClimate>
       <p>{city}</p>
       <ContentDiv>
-        <img src={icon} alt="rain" />
+        <img src={icon} alt="" />
         <span>{temperature}º</span>
       </ContentDiv>
     </ContainerClimate>

@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, Children } from 'react';
+import { ButtonHTMLAttributes } from 'react';
 import * as Styled from './style';
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {}
 

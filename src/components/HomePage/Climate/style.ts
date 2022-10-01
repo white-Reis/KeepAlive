@@ -3,20 +3,30 @@ import styled from "styled-components";
 export const ContainerClimate = styled.div`
 display: flex;
 flex-direction: column;
-align-items: center;
-position: relative;
-margin: 25px 90px 0 0;
-width: 0.65vw;
+margin: 2.3vh 2.3vw 0 0;
 height: 80px;
-@media screen and (max-width: 770px) {
-  margin-right: 0;
-}
 p{
   width: 120px;
   font-size:0.875rem;
   font-weight: 400;
   text-align: center;
+  @media screen and (max-height: 425px) {
+    margin-bottom:2vw;
+  }
 }
+@media screen and (max-width: 600px) {
+ margin: 1vh 0 2vh 0;
+  }
+@media screen and (max-height: 425px) {
+    margin: 1vh 0 0 0;
+  }
+
+`
+export const ContentDiv = styled.div`
+width: 100%;
+height: 7.22vh;
+display: flex;
+align-items: center;
 img {
   margin-right:10px;
   width: 30px;
@@ -28,8 +38,4 @@ span{
   text-align: center;
 }
 
-`
-export const ContentDiv = styled.div`
-display: flex;
-align-items: center;
 `

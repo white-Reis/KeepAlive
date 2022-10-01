@@ -12,13 +12,16 @@ div {
     font-weight: 700;
     font-size: 9rem;
     color:${UI.BlackSecondary};
-    @media screen and (max-width: 770px) {
-  font-size: 7rem;
-}
   }
 }
 p{
   color:${UI.BlackSecondary};
   font-size: .8rem;
+}
+@media screen and (max-width:600px) {
+  display:none;
+}
+@media screen and (max-height: 425px) {
+  display: none;
 }
 `

@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
 import { LoginContext, SeassonProps } from '../../../context/Login';
-import { ContainerText, ContainerTimeOut, ContainerTimer } from './style';
+import { RefreshMessage, TimeOut, TimeOutTimer } from './style';
 
 export default function Timeout() {
   const { logged, seassonTime, setSeassonTime, setLogged }: SeassonProps =
@@ -13,14 +13,14 @@ export default function Timeout() {
   }, [logged, seassonTime]);
 
   return (
-    <ContainerTimeOut>
-      <ContainerText>
+    <TimeOut>
+      <RefreshMessage>
         <p>Application refresh in</p>
-      </ContainerText>
-      <ContainerTimer>
+      </RefreshMessage>
+      <TimeOutTimer>
         <h1>{seassonTime}</h1>
         <p>Seconds</p>
-      </ContainerTimer>
-    </ContainerTimeOut>
+      </TimeOutTimer>
+    </TimeOut>
   );
 }

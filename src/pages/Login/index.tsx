@@ -30,7 +30,7 @@ export default function Login() {
       setValid(true);
       setEmail('');
       setPassword('');
-      setSeassonTime(60);
+      setSeassonTime(600);
       History('/home');
     } else {
       setValid(false);

@@ -25,7 +25,7 @@ export const LoginProvider = ({ children }: ChildrenProps) => {
   const [password, setPassword] = useState<string>('');
   const [valid, setValid] = useState<boolean>(true);
   const [logged, setLogged] = useState<boolean>(false);
-  const [seassonTime, setSeassonTime] = useState<number>(60);
+  const [seassonTime, setSeassonTime] = useState<number>(600);
 
   return (
     <LoginContext.Provider

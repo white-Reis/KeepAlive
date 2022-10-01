@@ -1,85 +1,90 @@
 import styled from "styled-components";
+import * as UI from '../../UI'
 
-interface Props
-{
-  variant:string
-}
-export const ContainerTimeOut = styled.div`
+
+export const TimeOut = styled.div`
+min-width: 93px;
+width: 12.5vw;
+height: 6.6vh;
 display: flex;
-align-items: center;
+@media screen and (max-width: 1110px){
+ font-size:10px ;
+}
+@media screen and (max-width: 760px){
+ flex-direction: column;
+ width:33%;
+ justify-content: start;
+ align-items: center;
+}
+`
+
+export const RefreshMessage = styled.div`
+min-width: 76px;
+width: 50%;
+display: flex;
+flex-direction: column;
+justify-content:center ;
 margin-left: 6.4vw;
-@media screen and (max-width: 940px) {
-  margin: 0;
-}
-@media screen and (max-width: 510px) {
-  flex-direction:column;
-  align-items: center;
-}
-`
-export const ContainerTimer = styled.div`
-width:100px;
-height: 60px;
-flex-flow: column;
-align-items: center;
-margin-left: 30px;
-position: relative;
-h1{
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 60px;
-  text-align: center;
-  color: white;
-  @media screen and (max-width: 800px) {
-  font-size: 2rem;
-}
-  @media screen and (max-width: 510px) {
-  font-size: 1rem;
-  position:relative;
-  bottom: 10px;
-  right: 6px;
-}
-}
 p{
-  font-size: .875rem;
-  text-align: center;
-  line-height: px;
-  color: white;
-  position: absolute;
-  bottom:-10px;
-  right: 20%;
-  @media screen and (max-width: 510px) {
-}
-@media screen and (max-width: 510px) {
-  position: absolute;
-  bottom:5px;
-  left: 10px;
-  text-align: center;
-  
-}
-}
-@media screen and (max-width: 520px) {
-  margin: 0;
-}
-`
-export const ContainerText = styled.div`
-display: flex;
-align-items: center;
-width: 108px;
-height: 50px;
-p{
-  font-size: .875rem;
+  height: 20px;
+  font-size: 14px;
+  line-height: 17.75px;
+  font-weight: 400;
   text-align: right;
   color: white;
-  @media screen and (max-width: 510px) {
+  @media screen and (max-width: 1110px){
+ font-size:12px ;
+}
+  @media screen and (max-width: 760px){
   text-align: center;
 }
 }
-@media screen and (max-width: 510px) {
-  position: relative;
-  width: 80px;
-  text-align: center;
-  top: 0;
-  right: 10PX;
+@media screen and (max-width:1110px) {
+  margin-left: 1.7vw;
+}
+@media screen and (max-width:760px) {
+  height:25%;
+}
+
+`
+export const TimeOutTimer = styled.div`
+min-width: 76px;
+width: 50%;
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-left: 1.7vw;
+h1 {
+height:50px ;
+font-size: 3rem;
+font-weight: 700;
+line-height: 61px;
+text-align: center;
+color: white;
+@media screen and (max-width: 1110px){
+ font-size:2rem ;
+}
+@media screen and (max-width: 760px){
+font-size:1rem ;
+color: ${UI.Primary};
+}
+@media screen and (max-width: 600px){
+font-size:1rem ;
+height: 40px;
+color: ${UI.Primary};
+}
+}
+p{
+  font-size: 14px;
+  line-height: 17.75px;
+  font-weight: 400;
+  text-align: right;
+  color: white;
+  @media screen and (max-width: 1110px){
+ font-size:12px ;
+}
+  @media screen and (max-width: 760px){
+  height:25%;
+}
 }
 `
-
