@@ -15,7 +15,7 @@ p{
   }
 }
 @media screen and (max-width: 600px) {
- margin: 1vh 0 2vh 0;
+ margin: 1vh 0 1vh 0;
   }
 @media screen and (max-height: 425px) {
     margin: 1vh 0 0 0;

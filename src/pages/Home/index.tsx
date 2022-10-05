@@ -40,7 +40,6 @@ export default function Home() {
         </Styled.TextContainer>
         <Styled.ImageCompasso src={ImageCompasso} />
       </div>
-      <Styled.ImageCompassoMobile />
       <Styled.Footer>
         <Styled.DescriptionFooter>
           <div>

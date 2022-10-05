@@ -4,8 +4,8 @@ import * as UI from '../../UI'
 
 export const TimeOut = styled.div`
 min-width: 93px;
-width: 12.5vw;
-height: 6.6vh;
+width: 239px;
+height: 72px;
 display: flex;
 @media screen and (max-width: 1110px){
  font-size:10px ;
@@ -50,6 +50,7 @@ p{
 export const TimeOutTimer = styled.div`
 min-width: 76px;
 width: 50%;
+height: 70px;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -66,12 +67,15 @@ color: white;
 }
 @media screen and (max-width: 760px){
 font-size:1rem ;
-color: ${UI.Primary};
+height: 40px;
 }
 @media screen and (max-width: 600px){
 font-size:1rem ;
+}
+@media screen and (max-width: 500px){
 height: 40px;
-color: ${UI.Primary};
+font-size:1rem ;
+height: 40px;
 }
 }
 p{

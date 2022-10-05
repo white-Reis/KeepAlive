@@ -11,14 +11,12 @@ export const HomeContainer = styled.div`
   overflow: hidden;
 @media screen and (max-width: 600px) {
   align-items: center;
-  height: 120vh;
+  height: 115vh;
 }
-@media screen and (min-height:725px) {
-  height: 100vh;
-}
+
 @media screen and (max-height: 425px) {
   align-items: center;
-  height: 80vw;
+  height: 90vw;
   align-items: initial;
 }
 `
@@ -32,6 +30,7 @@ export const Header = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom:2vh;
   }
 @media screen and (max-height: 425px) {
   flex-direction: column;
@@ -88,10 +87,6 @@ h1{
       @media screen and (max-width: 860px) {
       font-size: 1.75rem;} 
     }
-    @media screen and (max-width:600px) {
-      text-align:center;
-      margin-right: 0;
-    }
     @media screen and (max-width:425px) {
       height: 40vh;
     }
@@ -126,20 +121,6 @@ export const ImageCompasso = styled.img`
   top: 80px;
 }
 ` 
-export const ImageCompassoMobile = styled.div`
-  display: none;
-  width: 28.5vw;
-  height: 12.25vh;
-  min-width: 80px;
-  min-height: 80px;
-  background-image: url(${imageBg});
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-@media screen and (max-width: 600px) {
-  display:block
-  }
-`
 export const Footer = styled.div`
   min-height: 100px;
   display: flex;
