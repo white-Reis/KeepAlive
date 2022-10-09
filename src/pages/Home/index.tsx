@@ -11,8 +11,13 @@ import { Climate } from '../../components/HomePage/Climate';
 export default function Home() {
   const History = useNavigate();
 
-  const { logged, setLogged, seassonTime, setSeassonTime }: SeassonProps =
-    useContext(LoginContext);
+  const {
+    logged,
+    setLogged,
+    seassonTime,
+    setSeassonTime,
+    sessionName,
+  }: SeassonProps = useContext(LoginContext);
 
   useEffect(() => {
     if (!logged || seassonTime === 0) {
@@ -42,6 +47,9 @@ export default function Home() {
       </div>
       <Styled.Footer>
         <Styled.DescriptionFooter>
+          <Styled.SessionName>
+            <h1>Olá,{sessionName.split(' ', 1)}</h1>
+          </Styled.SessionName>
           <div>
             <p>
               Essa janela do navegador é usada para manter sua sessão de

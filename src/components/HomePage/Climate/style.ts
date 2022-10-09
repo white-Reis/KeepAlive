@@ -10,8 +10,11 @@ p{
   font-size:0.875rem;
   font-weight: 400;
   text-align: center;
-  @media screen and (max-height: 425px) {
-    margin-bottom:2vw;
+  @media screen and (max-height: 500px) {
+    margin-bottom:5vh;
+  }
+  @media screen and (max-height: 320px) {
+    margin-bottom:10vh;
   }
 }
 @media screen and (max-width: 600px) {

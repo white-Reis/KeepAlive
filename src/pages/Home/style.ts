@@ -14,11 +14,17 @@ export const HomeContainer = styled.div`
   height: 115vh;
 }
 
-@media screen and (max-height: 425px) {
+@media screen and (max-height: 460px) {
   align-items: center;
-  height: 90vw;
+  height: 200vh;
   align-items: initial;
 }
+@media screen and (max-height: 270px) {
+  align-items: center;
+  height: 240vh;
+  align-items: initial;
+}
+
 `
 
 export const Header = styled.div`
@@ -50,7 +56,6 @@ export const HomeLogo = styled.img`
 }
 `
 export const TextContainer = styled.div`
-  height: 35.5vh;
   margin-right: 7vw;
   height: 33.5vh;
   text-align: end;
@@ -74,24 +79,24 @@ p{
 h1{
     font-size:4rem;
     color: ${UI.Primary};
-  @media screen and (max-width: 1460px) {
+    @media screen and (max-width: 1460px) {
       font-size: 3.5rem;}
-  @media screen and (max-width: 1325px) {
+    @media screen and (max-width: 1325px) {
       font-size: 3rem;}
-  @media screen and (max-width: 1110px) {
+    @media screen and (max-width: 1110px) {
       font-size: 2.5rem;}
-  @media screen and (max-width: 950px) {
+    @media screen and (max-width: 950px) {
       font-size: 2.25rem;}
-  @media screen and (max-width: 860px) {
+    @media screen and (max-width: 860px) {
       font-size: 2rem;} 
-      @media screen and (max-width: 860px) {
+    @media screen and (max-width: 860px) {
       font-size: 1.75rem;} 
+      @media screen and (max-width:275px) {
+        font-size:1rem
+      }
     }
     @media screen and (max-width:425px) {
       height: 40vh;
-    }
-    @media screen and (max-height: 425px) {
-      margin-top:35vh;
     }
     @media screen and (max-width:375px) {
       height: 40vh;
@@ -175,6 +180,19 @@ span {
   width: 100%;
 }
 `
+
+export const SessionName = styled.div`
+width: 21vw;
+align-items: center;
+h1{
+font-size: 1.5rem;
+font-weight: 700;
+line-height: 61px;
+text-align: center;
+color: white;
+}
+`
+
 export const FooterButtonDiv = styled.div`
   width: 50%;
   display: flex;

@@ -6,7 +6,8 @@ interface PropsInput {
   flag:string  
 }
 interface Props {
-focused:boolean}
+focused:boolean
+}
 
 export const Container = styled.div<PropsInput>`
 width: 100%;

@@ -1,15 +1,16 @@
 import * as react from 'react';
 import * as Styled from './style';
-import { AiOutlineUser } from 'react-icons/ai';
+import { AiOutlineUser, AiOutlineMail } from 'react-icons/ai';
 import { HiOutlineLockClosed } from 'react-icons/hi';
+
 interface Props extends react.InputHTMLAttributes<HTMLInputElement> {
   text: string;
-  icon: 'user' | 'lock';
+  icon: 'user' | 'lock' | 'card';
   error: boolean;
   flag: string;
 }
 
-export default function Button({
+export default function Input({
   text,
   error,
   flag,
@@ -30,6 +31,8 @@ export default function Button({
       <Styled.Icon focused={focused}>
         {icon === 'user' ? (
           <AiOutlineUser size={20} />
+        ) : icon === 'card' ? (
+          <AiOutlineMail size={20} />
         ) : (
           <HiOutlineLockClosed size={20} />
         )}

@@ -15,12 +15,10 @@ export const Page = styled.div`
     background-position: right;}
   @media screen and (max-height:300px) {
    height: 80vw;}
-   @media screen and (max-height:460px) {
-height: 120vh;
+   @media screen and (max-height:570px) {
+height: 200vh;
 }
-@media screen and (max-height:280px) {
-height: 150vh;
-}
+
 `
 
 export const LoginContainer = styled.div`
@@ -37,12 +35,10 @@ export const LoginContainer = styled.div`
     background: transparent;
     backdrop-filter: blur(2px) brightness(30%);
 }
-@media screen and (max-height:460px) {
-height: 120vh;
+@media screen and (max-height:570px) {
+height: 200vh;
 }
-@media screen and (max-height:280px) {
-height: 150vh;
-}
+
 `;
 
 export const ImageContainer = styled.div`
@@ -62,7 +58,6 @@ export const ImageContainer = styled.div`
   @media screen and (max-width:750px) {
   display:none;
 }
-
 `;
 export const InputsContainer = styled.form`
   width: 39.5%;
@@ -119,6 +114,7 @@ export const LogoImage = styled.img`
   display: none;
   position: fixed;
   top: 0;
+  min-width: 225px;
   @media screen and (max-width:750px) {
   display:block;
   }
@@ -143,5 +139,21 @@ ${(props) =>
 @media screen and (max-width:280px) {
    width:100%;
     }
+}
+`
+
+export const Register = styled.div`
+width: 100%;
+height: 20px;
+
+p {
+font-size: 16px;
+font-weight: 400;
+line-height: 20px;
+letter-spacing: 0em;
+text-align: left;
+color: ${UI.Secundary};
+cursor: pointer;
+margin-top: 4vh;
 }
 `

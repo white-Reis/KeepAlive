@@ -1,5 +1,4 @@
 import React, { FormEvent } from 'react';
-import { Email } from '../../common/helper/Regex';
 import * as Styled from './style';
 import Logo from '../../assets/Images/Logo.svg';
 import Input from '../../components/LoingPage/Input';
@@ -8,6 +7,8 @@ import { useContext } from 'react';
 import { LoginContext } from '../../context/Login';
 import { SeassonProps } from '../../context/Login';
 import { useNavigate } from 'react-router-dom';
+import { RegisterContext, RegistrationProps } from '../../context/Registration';
+import { User } from '../../interface/user';
 
 export default function Login() {
   const {
@@ -19,16 +20,25 @@ export default function Login() {
     setLogged,
     valid,
     setValid,
+    setSessionName,
   }: SeassonProps = useContext(LoginContext);
+  const { users }: RegistrationProps = useContext(RegisterContext);
 
   const History = useNavigate();
 
-  function sendSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function sendSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (Email.test(email) && password.length > 5) {
+    let logging;
+    users.forEach(item => {
+      if (item.email === email && item.password === password) {
+        setSessionName(item.name);
+        logging = true;
+      }
+    });
+    if (logging) {
       setLogged(true);
       setValid(true);
-      setEmail('');
+      setEmail(email);
       setPassword('');
       setSeassonTime(600);
       History('/home');
@@ -75,6 +85,9 @@ export default function Login() {
           <Button onClick={event => sendSubmit(event)} type="submit">
             Continuar
           </Button>
+          <Styled.Register>
+            <p onClick={() => History('/registration')}>Criar nova Conta?</p>
+          </Styled.Register>
         </Styled.InputsContainer>
       </Styled.LoginContainer>
       <Styled.ImageContainer>
