@@ -91,7 +91,10 @@ export default function Home() {
             <br />
             Navegando
           </Styled.ButtonsHomeMobile>
-          <Styled.ButtonsHomeMobile colored={false} onSubmit={() => logout()}>
+          <Styled.ButtonsHomeMobile
+            colored={false}
+            onClick={() => setLogged(false)}
+          >
             Logout
           </Styled.ButtonsHomeMobile>
         </Styled.FooterButtonDiv>

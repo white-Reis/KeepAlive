@@ -115,14 +115,13 @@ h1{
 export const Footer = styled.div`
   min-height: 100px;
   display: flex;
-  align-items: center;
   height: 9.25vh;
   background: linear-gradient(90.16deg, #33383D 0%, #1C1D20 100%);
   overflow: hidden;
 @media screen and (max-width: 600px) {
-  min-height: 240px;
+  min-height: 220px;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
 }
 `
 export const DescriptionFooter = styled.div`
@@ -139,16 +138,16 @@ p{
   line-height: 15px;
   color: ${UI.Secundary};
   text-align: right;
-@media screen and (max-width: 600px) {
+  @media screen and (max-width:960px) {
+      width: 100%;
+    }
+  @media screen and (max-width: 600px) {
   width: 100%;
-  height: 70%;
+  height: 80%;
   text-align: center;
   border-top: 1px solid white;
   padding: 10px 5px;
       }
-@media screen and (max-width:960px) {
-    width: 100%;
-  }
     }
   }
 span { 
@@ -163,9 +162,10 @@ span {
 }
 @media screen and (max-width: 600px) {
   width: 100%;
-  height: 40%;
+  height: 50%;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 }
 `
 
@@ -178,15 +178,17 @@ h1{
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 10px;
-text-align: center;
-color: white;
+  text-align: center;
+  color: white;
+  margin-top:1vh;
 }
 @media screen and (max-width: 600px) {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 100%;
-  height:20%;
+  height: 50%;
   margin-left: 0;
 }
 `

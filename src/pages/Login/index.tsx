@@ -1,4 +1,4 @@
-import React, { FormEvent, useEffect } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
 import * as Styled from './style';
 import Logo from '../../assets/Images/Logo.svg';
 import Input from '../../components/LoingPage/Input';
@@ -23,7 +23,6 @@ export default function Login() {
     valid,
     setValid,
     setSessionName,
-    logged,
   }: SeassonProps = useContext(LoginContext);
   const { users }: RegistrationProps = useContext(RegisterContext);
 
@@ -31,7 +30,9 @@ export default function Login() {
 
   async function sendSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    await signInWithEmailAndPassword(auth, email, password);
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+    } catch (err) {}
     let log = auth.currentUser ? true : false;
     if (log) {
       users.forEach(item => {

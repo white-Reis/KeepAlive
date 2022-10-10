@@ -7,7 +7,6 @@ import {
 } from 'react-icons/ri';
 import Logo from '../../assets/Images/Logo.svg';
 import Input from '../../components/LoingPage/Input';
-import Button from '../../components/LoingPage/Button';
 import { RegisterContext, RegistrationProps } from '../../context/Registration';
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -95,9 +94,7 @@ export default function Registration() {
     ) {
       try {
         await createUserWithEmailAndPassword(auth, email, password);
-      } catch (err) {
-        console.log('erro:', err);
-      }
+      } catch (err) {}
       await addDoc(userColletionRef, {
         email: email,
         name: completeName,
