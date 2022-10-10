@@ -85,13 +85,13 @@ export default function Registration() {
   async function createUser(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setRegistered(true);
-    const availability = !users.some(item => item.email === email);
+    const avaliability = !users.some(item => item.email === email);
     if (
       validEmail &&
       validName &&
       validPassword &&
       validPasswordConfirm &&
-      availability
+      avaliability
     ) {
       try {
         await createUserWithEmailAndPassword(auth, email, password);
@@ -110,7 +110,7 @@ export default function Registration() {
       setPasswordConfirm('');
       setTimeout(() => History('/'), 3000);
     }
-    if (availability) {
+    if (avaliability) {
       setAvaliableEmail(true);
     } else {
       setAvaliableEmail(false);
