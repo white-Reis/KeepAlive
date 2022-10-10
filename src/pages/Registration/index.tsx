@@ -1,6 +1,10 @@
 import * as Styled from './style';
 import * as Regex from '../../common/helper/Regex';
 import { HiOutlineLockClosed, HiOutlineLockOpen } from 'react-icons/hi';
+import {
+  RiCheckboxBlankCircleLine,
+  RiCheckboxCircleFill,
+} from 'react-icons/ri';
 import Logo from '../../assets/Images/Logo.svg';
 import Input from '../../components/LoingPage/Input';
 import Button from '../../components/LoingPage/Button';
@@ -8,8 +12,8 @@ import { RegisterContext, RegistrationProps } from '../../context/Registration';
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { addDoc } from 'firebase/firestore';
-import { userColletionRef } from '../../service/firebaseConfig';
-import { TimeOut } from '../../components/HomePage/Timeout/style';
+import { userColletionRef, auth } from '../../service/firebaseConfig';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 export default function Registration() {
   const History = useNavigate();
@@ -89,10 +93,14 @@ export default function Registration() {
       validPasswordConfirm &&
       availability
     ) {
-      const user = await addDoc(userColletionRef, {
+      try {
+        await createUserWithEmailAndPassword(auth, email, password);
+      } catch (err) {
+        console.log('erro:', err);
+      }
+      await addDoc(userColletionRef, {
         email: email,
         name: completeName,
-        password: password,
       });
       setMembers(members + 1);
       setRegistered(false);
@@ -180,24 +188,50 @@ export default function Registration() {
             </Styled.Icon>
           </Styled.ContainerInput>
           <Styled.PasswordMessage focused={textHide}>
-            <Styled.PasswordSpan correct={password.length > 7}>
-              Mínimo de oito dígitos*
+            <Styled.arrowForMessage />
+            <Styled.PasswordSpan correct={password.length > 5}>
+              {password.length > 5 ? (
+                <RiCheckboxCircleFill size={15} />
+              ) : (
+                <RiCheckboxBlankCircleLine size={15} />
+              )}
+              Mínimo de seis dígitos
             </Styled.PasswordSpan>
             <br />
             <Styled.PasswordSpan correct={Regex.uppercase.test(password)}>
-              Letra maiúscula*
+              {Regex.uppercase.test(password) ? (
+                <RiCheckboxCircleFill size={15} />
+              ) : (
+                <RiCheckboxBlankCircleLine size={15} />
+              )}
+              Letra maiúscula
             </Styled.PasswordSpan>
             <br />
             <Styled.PasswordSpan correct={Regex.lowcase.test(password)}>
-              Letra minúscula*
+              {Regex.lowcase.test(password) ? (
+                <RiCheckboxCircleFill size={15} />
+              ) : (
+                <RiCheckboxBlankCircleLine size={15} />
+              )}
+              Letra minúscula
             </Styled.PasswordSpan>
             <br />
             <Styled.PasswordSpan correct={Regex.Number.test(password)}>
-              Número*
+              {Regex.Number.test(password) ? (
+                <RiCheckboxCircleFill size={15} />
+              ) : (
+                <RiCheckboxBlankCircleLine size={15} />
+              )}
+              Número
             </Styled.PasswordSpan>
             <br />
             <Styled.PasswordSpan correct={Regex.Special.test(password)}>
-              Caractere especial*
+              {Regex.Special.test(password) ? (
+                <RiCheckboxCircleFill size={15} />
+              ) : (
+                <RiCheckboxBlankCircleLine size={15} />
+              )}
+              Caractere especial
             </Styled.PasswordSpan>
           </Styled.PasswordMessage>
           <label htmlFor="passwordConfirm_Input">Confirmar senha</label>
@@ -239,11 +273,16 @@ export default function Registration() {
           <Styled.registerMessage Error={registered}>
             <span>Conta Criada com sucesso</span>
           </Styled.registerMessage>
-          <Button onClick={event => createUser(event)} type="submit">
-            Cadastrar
-          </Button>
+          <Styled.registerButton>
+            <button onClick={(event: any) => createUser(event)} type="submit">
+              Cadastrar
+            </button>
+          </Styled.registerButton>
           <Styled.Login>
-            <p onClick={() => History('/')}>Já possui uma conta?</p>
+            <p>
+              Já possui uma conta? clique
+              <span onClick={() => History('/')}> aqui</span>
+            </p>
           </Styled.Login>
         </Styled.InputsContainer>
       </Styled.LoginContainer>

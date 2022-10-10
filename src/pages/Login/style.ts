@@ -10,19 +10,15 @@ interface Props {
 export const Page = styled.div`
   display: flex;
   height: 100vh;
+  min-height: 800px;
   @media screen and (max-width:750px) {
-    background-image: url(${BG});
-    background-position: right;}
-  @media screen and (max-height:300px) {
-   height: 80vw;}
-   @media screen and (max-height:570px) {
-height: 200vh;
-}
-
+  background-image: url(${BG});
+  background-position: right;}
 `
 
 export const LoginContainer = styled.div`
   width: 50%;
+  min-height: 800px;
   background: linear-gradient(180deg, #33383d 0%, #1c1d20 100%);
   display: flex;
   flex-direction: column;
@@ -35,10 +31,6 @@ export const LoginContainer = styled.div`
     background: transparent;
     backdrop-filter: blur(2px) brightness(30%);
 }
-@media screen and (max-height:570px) {
-height: 200vh;
-}
-
 `;
 
 export const ImageContainer = styled.div`
@@ -65,15 +57,15 @@ export const InputsContainer = styled.form`
   margin-top:9vh ;
   backdrop-filter: blur(10px);
   h2 {
-    font-weight: 400;
-    font-size: 1.875rem;
-    line-height: 38px;
-    margin-bottom: 32px;
-    color: ${UI.Secundary}
+  font-weight: 400;
+  font-size: 1.875rem;
+  line-height: 38px;
+  margin-bottom: 32px;
+  color: ${UI.Secundary}
   }
   @media screen and (max-width:750px) {
   min-width: 210px;
-margin-top: 4.5vh;
+  margin-top: 4.5vh;
 }
 `;
 
@@ -115,6 +107,8 @@ export const LogoImage = styled.img`
   position: fixed;
   top: 0;
   min-width: 225px;
+  min-height: 35px;
+
   @media screen and (max-width:750px) {
   display:block;
   }
@@ -143,17 +137,27 @@ ${(props) =>
 `
 
 export const Register = styled.div`
+display: flex;
 width: 100%;
 height: 20px;
+margin-top: 2vh;
 
 p {
 font-size: 16px;
 font-weight: 400;
 line-height: 20px;
 letter-spacing: 0em;
-text-align: left;
+text-align: center;
 color: ${UI.Secundary};
 cursor: pointer;
-margin-top: 4vh;
 }
+span {
+color: ${UI.Primary};
+font-size: 16px;
+font-weight: 400;
+line-height: 20px;
+letter-spacing: 0em;
+text-align: center;
+}
+
 `

@@ -1,4 +1,4 @@
-import React, { FormEvent } from 'react';
+import React, { FormEvent, useEffect } from 'react';
 import * as Styled from './style';
 import Logo from '../../assets/Images/Logo.svg';
 import Input from '../../components/LoingPage/Input';
@@ -8,7 +8,9 @@ import { LoginContext } from '../../context/Login';
 import { SeassonProps } from '../../context/Login';
 import { useNavigate } from 'react-router-dom';
 import { RegisterContext, RegistrationProps } from '../../context/Registration';
-import { User } from '../../interface/user';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../service/firebaseConfig';
+import { async } from '@firebase/util';
 
 export default function Login() {
   const {
@@ -21,6 +23,7 @@ export default function Login() {
     valid,
     setValid,
     setSessionName,
+    logged,
   }: SeassonProps = useContext(LoginContext);
   const { users }: RegistrationProps = useContext(RegisterContext);
 
@@ -28,17 +31,17 @@ export default function Login() {
 
   async function sendSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    let logging;
-    users.forEach(item => {
-      if (item.email === email && item.password === password) {
-        setSessionName(item.name);
-        logging = true;
-      }
-    });
-    if (logging) {
-      setLogged(true);
+    await signInWithEmailAndPassword(auth, email, password);
+    let log = auth.currentUser ? true : false;
+    if (log) {
+      users.forEach(item => {
+        if (item.email === email) {
+          setSessionName(item.name);
+        }
+      });
+      setLogged(auth.currentUser ? true : false);
       setValid(true);
-      setEmail(email);
+      setEmail('');
       setPassword('');
       setSeassonTime(600);
       History('/home');
@@ -46,7 +49,6 @@ export default function Login() {
       setValid(false);
     }
   }
-
   return (
     <Styled.Page>
       <Styled.LoginContainer>
@@ -82,11 +84,14 @@ export default function Login() {
           <Styled.ErrorMessage Error={valid}>
             <span> Ops, usuário ou senha inválidos. Tente novamente!</span>
           </Styled.ErrorMessage>
-          <Button onClick={event => sendSubmit(event)} type="submit">
+          <Button onClick={(event: any) => sendSubmit(event)} type="submit">
             Continuar
           </Button>
           <Styled.Register>
-            <p onClick={() => History('/registration')}>Criar nova Conta?</p>
+            <p>
+              Não possui uma conta? clique
+              <span onClick={() => History('/registration')}> aqui</span>
+            </p>
           </Styled.Register>
         </Styled.InputsContainer>
       </Styled.LoginContainer>

@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom';
 import Timeout from '../../components/HomePage/Timeout';
 import Clock from '../../components/HomePage/Clock';
 import { Climate } from '../../components/HomePage/Climate';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../service/firebaseConfig';
 
 export default function Home() {
   const History = useNavigate();
@@ -21,9 +23,13 @@ export default function Home() {
 
   useEffect(() => {
     if (!logged || seassonTime === 0) {
+      logout();
       History('/');
     }
   }, [logged, seassonTime, setSeassonTime]);
+  const logout = () => {
+    return signOut(auth);
+  };
   return (
     <Styled.HomeContainer>
       <Styled.Header>
@@ -43,7 +49,7 @@ export default function Home() {
           <h1>that enable our client’s growth</h1>
           <p>que permitam o crescimento dos nossos clientes</p>
         </Styled.TextContainer>
-        <Styled.ImageCompasso src={ImageCompasso} />
+        {/* <Styled.ImageCompasso src={ImageCompasso} /> */}
       </div>
       <Styled.Footer>
         <Styled.DescriptionFooter>
@@ -85,10 +91,7 @@ export default function Home() {
             <br />
             Navegando
           </Styled.ButtonsHomeMobile>
-          <Styled.ButtonsHomeMobile
-            colored={false}
-            onClick={() => setLogged(false)}
-          >
+          <Styled.ButtonsHomeMobile colored={false} onSubmit={() => logout()}>
             Logout
           </Styled.ButtonsHomeMobile>
         </Styled.FooterButtonDiv>

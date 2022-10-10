@@ -1,30 +1,21 @@
 import styled from 'styled-components';
 import * as UI from '../../components/UI';
 import BG from "../../assets/Images/MaskGroup.png";
+import Button from '../../components/LoingPage/Button';
 
 export const Page = styled.div`
   display: flex;
-  height: 120vh;
+  height: 100vh;
+  min-height: 950px;
   @media screen and (max-width:750px) {
     background-image: url(${BG});
     background-position: right;}
-    @media screen and (max-height:760px) {
-    height: 120vh;
-    }
-    @media screen and (max-height:660px) {
-    height: 160vh;
-    }
-    @media screen and (max-height:480px) {
-    height: 200vh;
-    }
-    @media screen and (max-height:330px) {
-    height: 280vh;
-    }
 `
 
 export const LoginContainer = styled.div`
   width: 50%;
-  height: 120vh;
+  height: 100vh;
+  min-height: 950px;
   background: linear-gradient(180deg, #33383d 0%, #1c1d20 100%);
   display: flex;
   flex-direction: column;
@@ -36,18 +27,6 @@ export const LoginContainer = styled.div`
     height: 100%;
     background: transparent;
     backdrop-filter: blur(2px) brightness(30%);
-}
-@media screen and (max-height:760px) {
-height: 120vh;
-}
-@media screen and (max-height:660px) {
-height: 160vh;
-}
-@media screen and (max-height:480px) {
-height: 200vh;
-}
-@media screen and (max-height:330px) {
-height: 280vh;
 }
 
 `;
@@ -89,7 +68,7 @@ export const LogoImage = styled.img`
 
 export const TextArea = styled.div`
 width: 100%;
-margin-bottom: 10vh;
+margin-bottom: 5vh;
 h1 {
   min-width: 220px;
   font-size:  4rem;
@@ -123,12 +102,12 @@ export const InputsContainer = styled.form`
     margin-bottom: 32px;
     color: ${UI.Secundary};
     @media screen and (max-width:605px) {
-      font-size: 1.5rem;
+    font-size: 1.5rem;
     }
   }
-  @media screen and (max-width:750px) {
-  min-width: 210px;
-margin-top: 4.5vh;
+    @media screen and (max-width:750px) {
+    min-width: 210px;
+    margin-top: 4.5vh;
 }
 `;
 
@@ -163,19 +142,23 @@ display: ${(props) => props.focused?'block':'none'};
 export const Login = styled.div`
 width: 100%;
 height: 20px;
-display: flex;
-justify-content: center;
-align-items: center;
 margin-top: 2vw;
 p {
-  margin-left: 10px;
+margin-left: 10px;
 font-size: 16px;
 font-weight: 400;
 line-height: 20px;
 letter-spacing: 0em;
-text-align: left;
+text-align: center;
 color: ${UI.Secundary};
 cursor: pointer;
+}
+  span {
+  color: ${UI.Primary};
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
 }
 `
 
@@ -210,7 +193,7 @@ input {
   font-size:1rem;
   padding: 0 30px;
   ${(props) =>
-    props.flag.length>0 && "font-size:3rem;letter-spacing: 8px;" }
+    props.flag.length>0 && "font-size:2.5rem;letter-spacing: 8px;" }
  @media screen and (max-width:500px) {
   ${(props) =>
     props.flag.length>0 && "font-size:2rem;letter-spacing: 8px;" }
@@ -242,7 +225,7 @@ display: flex;
 justify-content: center;
 position: relative;
 span{
-  position: absolute;
+position: absolute;
 width: 280px;
 color: ${UI.yellow};
 font-size: 1rem;
@@ -261,4 +244,37 @@ export const registerMessage = styled(ErrorMessage)`
 span{
   color:green;
 }
+`
+
+export const arrowForMessage = styled.span`
+padding: 5px;
+background-color: #E0E0E0;
+transform: translateY(6.53553391px) rotate(45deg);
+position: absolute;
+top:-12px;
+right: 50%;
+z-index: -1;
+`
+export const registerButton = styled.div`
+width: 100%;
+button{
+  width: 100%;
+  height: 7.8vh;
+  min-height: 40px;
+  background: linear-gradient(90deg, #ff2d04 0%, #c13216 100%);
+  box-shadow: 5px 5px 15px 0px #00000080;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 2;
+  color: #ffffff;
+  margin-top: 30px;
+  
+  @media screen and (max-width: 750px) {
+    box-shadow: none;
+  }
+  :active {
+    box-shadow: none;
+  }
+  }
 `

@@ -1,4 +1,5 @@
 import React, { createContext, useState } from 'react';
+import { auth } from '../service/firebaseConfig';
 
 export interface SeassonProps {
   email: string;
@@ -27,7 +28,9 @@ export const LoginProvider = ({ children }: ChildrenProps) => {
   const [sessionName, setSessionName] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [valid, setValid] = useState<boolean>(true);
-  const [logged, setLogged] = useState<boolean>(true);
+  const [logged, setLogged] = useState<boolean>(
+    auth.currentUser ? true : false,
+  );
   const [seassonTime, setSeassonTime] = useState<number>(600);
 
   return (

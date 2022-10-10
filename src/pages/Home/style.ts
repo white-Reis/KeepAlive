@@ -2,27 +2,25 @@ import styled from "styled-components";
 import * as UI from '../../components/UI';
 import imageBg from '../../assets/Images/bolaomob.svg'
 
+
 export const HomeContainer = styled.div`
   width: 100vw;
   height: 100vh;
-  display: flex;
+  min-height: 900px;
+  display:flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
+  background-image: url(${imageBg});
+  background-repeat: no-repeat;
+  background-size: 35%;
+  background-position-x: -15%;
+  background-position-y: 85%;
+@media screen and (max-width: 1024px) {
+  background-image:none
+}
 @media screen and (max-width: 600px) {
   align-items: center;
-  height: 115vh;
-}
-
-@media screen and (max-height: 460px) {
-  align-items: center;
-  height: 200vh;
-  align-items: initial;
-}
-@media screen and (max-height: 270px) {
-  align-items: center;
-  height: 240vh;
-  align-items: initial;
 }
 
 `
@@ -49,32 +47,43 @@ export const HomeLogo = styled.img`
   width: 150px;
   height: 42px;
 @media screen and (max-width: 760px) {
-  margin: 30px 0 0 0;
+  margin-top: 30px;
   }
 @media screen and (max-height: 425px) {
-  margin: 50px 0 0 0;
+  margin-top: 50px ;
+}
+@media screen and (max-height: 425px) {
+  margin-top: 80px ;
 }
 `
 export const TextContainer = styled.div`
   margin-right: 7vw;
-  height: 33.5vh;
+  height:100%;
   text-align: end;
 
 h2{
 font-size:2rem;
 color: ${UI.Primary};
 @media screen and (max-width: 1460px) {
-  font-size: 1.25rem;}
+  font-size: 1.75rem;}
 @media screen and (max-width: 1325px) {
+  font-size: 1.5rem;}
+@media screen and (max-width: 680px) {
+  font-size: 1.25rem;}
+@media screen and (max-width:425px) {
   font-size: 1rem;}
 }
 p{
   font-size: 1.5rem;
   color: ${UI.Others};
   @media screen and (max-width: 1460px) {
-    font-size: 1.25em;}
+    font-size: 1.4em;}
   @media screen and (max-width: 1325px) {
-    font-size: 1rem;}
+    font-size: 1.35rem;}
+  @media screen and (max-width: 680px) {
+    font-size: 1.2rem;}
+  @media screen and (max-width: 425px) {
+    font-size: 1.15rem;}
 }
 h1{
     font-size:4rem;
@@ -83,16 +92,14 @@ h1{
       font-size: 3.5rem;}
     @media screen and (max-width: 1325px) {
       font-size: 3rem;}
-    @media screen and (max-width: 1110px) {
-      font-size: 2.5rem;}
-    @media screen and (max-width: 950px) {
-      font-size: 2.25rem;}
-    @media screen and (max-width: 860px) {
-      font-size: 2rem;} 
-    @media screen and (max-width: 860px) {
-      font-size: 1.75rem;} 
+      @media screen and (max-width:680px) {
+      font-size:2.5rem
+      }
+      @media screen and (max-width:425px) {
+        font-size:2rem
+      }
       @media screen and (max-width:275px) {
-        font-size:1rem
+        font-size:1.5rem
       }
     }
     @media screen and (max-width:425px) {
@@ -104,47 +111,24 @@ h1{
     @media screen and (max-width:325px) {
       height: 55vh;
     }
-`
-export const ImageCompasso = styled.img`
-  width: 43vw;
-  height: 72.38vh;
-  position: absolute;
-  bottom:2.2vh;
-  left: -12.12vw;
-  z-index: -1;
-
-@media screen and (max-width: 1400px) {
-  bottom:1.1vh;}
-@media screen and (max-width: 660px) {
-  left: -18.12vw;
-  }
-@media screen and (max-width: 600px) {
-  display:none
-  }
-@media screen and (max-height: 425px) {
-  position: relative;
-  top: 80px;
-}
 ` 
 export const Footer = styled.div`
   min-height: 100px;
   display: flex;
   align-items: center;
-  width: 100%;
   height: 9.25vh;
   background: linear-gradient(90.16deg, #33383D 0%, #1C1D20 100%);
   overflow: hidden;
 @media screen and (max-width: 600px) {
-  min-height: 180px;
-  height: 18.5vh;
-  flex-direction: column-reverse;
+  min-height: 240px;
+  flex-direction: column;
   justify-content: center;
 }
 `
 export const DescriptionFooter = styled.div`
   width: 50%;
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
 div{
   display: flex;
   align-items: center;
@@ -157,6 +141,7 @@ p{
   text-align: right;
 @media screen and (max-width: 600px) {
   width: 100%;
+  height: 70%;
   text-align: center;
   border-top: 1px solid white;
   padding: 10px 5px;
@@ -178,18 +163,31 @@ span {
 }
 @media screen and (max-width: 600px) {
   width: 100%;
+  height: 40%;
+  flex-direction: column;
+  align-items: center;
 }
 `
 
+
 export const SessionName = styled.div`
-width: 21vw;
+width: 20vw;
 align-items: center;
+margin-left: 2vw;
 h1{
-font-size: 1.5rem;
-font-weight: 700;
-line-height: 61px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 10px;
 text-align: center;
 color: white;
+}
+@media screen and (max-width: 600px) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height:20%;
+  margin-left: 0;
 }
 `
 
@@ -201,6 +199,8 @@ export const FooterButtonDiv = styled.div`
   justify-content: space-between;
 @media screen and (max-width: 600px) {
   width:100%;
+  height: 40%;
+  margin-top: 2vw;
 }
 `
 export const FooterRightContainer =styled.div`

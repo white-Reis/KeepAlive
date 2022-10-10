@@ -1,5 +1,4 @@
-import { async } from '@firebase/util';
-import { doc, getDocs } from 'firebase/firestore';
+import { getDocs } from 'firebase/firestore';
 import React, { createContext, useEffect, useState } from 'react';
 import { User } from '../interface/user';
 import { userColletionRef } from '../service/firebaseConfig';
@@ -53,10 +52,11 @@ export const RegisterProvider = ({ children }: ChildrenProps) => {
   useEffect(() => {
     const getUsers = async () => {
       const data = await getDocs(userColletionRef);
-      setUsers(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+      setUsers(data.docs.map((doc: any) => ({ ...doc.data(), id: doc.id })));
     };
     getUsers();
   }, [members]);
+
   return (
     <RegisterContext.Provider
       value={{

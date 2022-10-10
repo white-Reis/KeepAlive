@@ -30,7 +30,7 @@ input {
   font-size:1rem;
   padding: 0 30px;
   ${(props) =>
-    props.flag.length>0 && "font-size:3rem;letter-spacing: 8px;" }
+    props.flag.length>0 && "font-size:2.5rem;letter-spacing: 8px;" }
  @media screen and (max-width:500px) {
   ${(props) =>
     props.flag.length>0 && "font-size:2rem;letter-spacing: 8px;" }
